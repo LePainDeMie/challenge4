@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Challenge 4</title>
+  </head>
+  <body class="bg-gray-50 min-h-screen flex flex-col items-center justify-start">
+    <!-- Minimal Nav Bar -->
+    <nav class="w-full max-w-sm mt-8 mb-4">
+      <ul class="flex justify-between bg-blue-100 rounded p-2">
+        <li><button class="nav-btn px-4 py-2 rounded hover:bg-blue-300" data-page="1">1</button></li>
+        <li><button class="nav-btn px-4 py-2 rounded hover:bg-blue-300" data-page="2">2</button></li>
+        <li><button class="nav-btn px-4 py-2 rounded hover:bg-blue-300" data-page="3">3</button></li>
+        <li><button class="nav-btn px-4 py-2 rounded hover:bg-blue-300" data-page="4">4</button></li>
+        <li><button class="nav-btn px-4 py-2 rounded hover:bg-blue-300" data-page="5">5</button></li>
+        <li><button class="nav-btn px-4 py-2 rounded hover:bg-blue-300" data-page="6">6</button></li>
+      </ul>
+    </nav>
+    <!-- Pages -->
+    <div id="page-1" class="page-section bg-white p-8 rounded shadow-md w-full max-w-sm">
+      <h1 class="text-2xl font-bold mb-4">VAT Calculator</h1>
+      <form id="vat-form" class="space-y-4">
+        <div>
+          <label for="raw-price" class="block text-gray-700">Raw Price:</label>
+          <input type="number" id="raw-price" class="mt-1 w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" required min="0" step="any" placeholder="Enter raw price..." />
+        </div>
+        <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition">Calculate Final Price</button>
+      </form>
+      <div id="result" class="mt-6 text-lg font-semibold text-green-600"></div>
+    </div>
+    <div id="page-2" class="page-section bg-white p-8 rounded shadow-md w-full max-w-sm hidden">
+      <h1 class="text-2xl font-bold mb-4">Multiplication Table</h1>
+      <form id="table-form" class="space-y-4">
+        <div>
+          <label for="table-number" class="block text-gray-700">Enter a number (2-9):</label>
+          <input type="number" id="table-number" min="2" max="9" required class="mt-1 w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="2-9" />
+        </div>
+        <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition">Show Table</button>
+      </form>
+      <div id="table-result" class="mt-6 text-lg font-mono text-gray-800"></div>
+    </div>
+    <div id="page-3" class="page-section bg-white p-8 rounded shadow-md w-full max-w-sm hidden">
+      <h1 class="text-2xl font-bold mb-4">Array Calculations</h1>
+      <div class="mb-4">
+        <strong>Array:</strong>
+        <span id="array-values" class="font-mono">[3, 11, 7, 2, 9, 10]</span>
+      </div>
+      <button id="calc-array-btn" class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition mb-4">Calculate</button>
+      <div id="array-results" class="text-gray-800 font-mono"></div>
+    </div>
+    <div id="page-4" class="page-section bg-white p-8 rounded shadow-md w-full max-w-sm hidden">
+      <h1 class="text-2xl font-bold mb-4">Temperature Converter</h1>
+      <form id="c-to-f-form" class="mb-6 space-y-2">
+        <label for="celsius" class="block text-gray-700">Celsius to Fahrenheit:</label>
+        <input type="number" id="celsius" class="w-full border rounded px-3 py-2" placeholder="Enter °C" required />
+        <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition">Convert to °F</button>
+        <div id="c-to-f-result" class="mt-2 text-lg font-mono text-gray-800"></div>
+      </form>
+      <form id="f-to-c-form" class="space-y-2">
+        <label for="fahrenheit" class="block text-gray-700">Fahrenheit to Celsius:</label>
+        <input type="number" id="fahrenheit" class="w-full border rounded px-3 py-2" placeholder="Enter °F" required />
+        <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition">Convert to °C</button>
+        <div id="f-to-c-result" class="mt-2 text-lg font-mono text-gray-800"></div>
+      </form>
+    </div>
+    <div id="page-5" class="page-section bg-white p-8 rounded shadow-md w-full max-w-sm hidden">
+      <h1 class="text-2xl font-bold mb-4">Reverse String</h1>
+      <form id="reverse-form" class="space-y-4">
+        <div>
+          <label for="reverse-input" class="block text-gray-700">Enter a string:</label>
+          <input type="text" id="reverse-input" class="mt-1 w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" required placeholder="Type something..." />
+        </div>
+        <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition">Reverse</button>
+      </form>
+      <div id="reverse-result" class="mt-6 text-lg font-mono text-gray-800"></div>
+    </div>
+    <div id="page-6" class="page-section bg-white p-8 rounded shadow-md w-full max-w-sm hidden">
+      <h1 class="text-2xl font-bold mb-4">Count Vowels</h1>
+      <form id="vowel-form" class="space-y-4">
+        <div>
+          <label for="vowel-input" class="block text-gray-700">Enter a string:</label>
+          <input type="text" id="vowel-input" class="mt-1 w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" required placeholder="Type something..." />
+        </div>
+        <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition">Count Vowels</button>
+      </form>
+      <div id="vowel-result" class="mt-6 text-lg font-mono text-gray-800"></div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
